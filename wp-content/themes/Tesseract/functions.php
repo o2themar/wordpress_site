@@ -142,6 +142,8 @@ function tesseract_scripts() {
  	) );	
 	
 	// Enqueue default style
+	
+	
 	wp_enqueue_style( 'tesseract-style', get_stylesheet_uri(), array(), '1.0.0' );
 	
 	// Google fonts
@@ -369,3 +371,21 @@ function create_slides_post_type() {
 }
 
 add_action( 'init', 'create_slides_post_type' );
+
+/**
+* Add Owl Carousel
+**/
+
+function theme_name_scripts() {
+	wp_register_style( 'owl.carousel', get_template_directory_uri() . '/css/owl.carousel.css', array(), '20160114', 'all' );
+	wp_register_style( 'owl.theme', get_template_directory_uri() . '/css/owl.theme.css', array(), '20160114', 'all' );
+	wp_register_script('jquery-1.9.1.min', get_template_directory_uri() . '/js/jquery-1.9.1.min.js' );
+	wp_register_script('owl.carousel.min', get_template_directory_uri() . '/js/owl.carousel.min.js' );
+
+	wp_enqueue_style( 'owl.carousel' );
+	wp_enqueue_style( 'owl.theme' );
+	wp_enqueue_script( 'jquery-1.9.1.min');
+	wp_enqueue_script( 'owl.carousel.min');
+}
+
+add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );

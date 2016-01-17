@@ -10,6 +10,21 @@
 		$( '#url' ).attr( 'placeholder','Website' );
 		$( '#comment' ).attr( 'placeholder','Your Comment' );
 		
+		$("#carousel").owlCarousel({
+  			autoPlay: 3000, //Set AutoPlay to 3 seconds
+  			autoHeight: false,
+      		singleItem: true
+		 });
+
+		 $('.link').on('click', function(event){
+		    var $this = $(this);
+		    if($this.hasClass('clicked')){
+		      $this.removeAttr('style').removeClass('clicked');
+		    } else{
+		      $this.css('background','#7fc242').addClass('clicked');
+		    }
+		  });
+		
 		// Equal height blocks
 		// See @ http://css-tricks.com/equal-height-blocks-in-rows/
 		
@@ -163,15 +178,6 @@
 			}
 			
 		});	
-			
-		$("#carousel").owlCarousel({
- 
-      		autoPlay: 3000, //Set AutoPlay to 3 seconds
- 
-	      	items : 1,
-    	  	itemsDesktop : [1199,3],
-      		itemsDesktopSmall : [979,3]
- 
- 		 });	
+				
 	});
 })(jQuery);

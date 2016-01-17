@@ -10,20 +10,19 @@ get_header(); ?>
 	<div id="primary" class="full-width-page">
 		<main id="main" class="site-main" role="main">
 		
-		<div class="carousel">
-				<?php $new_query = new WP_Query('post_type=slide&posts_per_page=-1');
-					while($new_query->have_posts()) : $new_query->the_post();
-				?>
-			
-				<div class="item active">  
-					<img src="<?php the_field("slide_image"); ?>" alt="<?php the_title(); ?>"> 
-					<div class="carousel-caption hidden-phone">
-						<h4><?php the_title(); ?></h4> 
-						<p><?php the_field("slide_caption"); ?></p> 
-					</div>
+		<div id="carousel" class="owl-carousel">
+			<?php $new_query = new WP_Query('post_type=slide&posts_per_page=-1');
+				while($new_query->have_posts()) : $new_query->the_post();
+			?>
+			<a class="item link">  
+				<img src="<?php the_field("slide_image"); ?>" alt="<?php the_title(); ?>"> 
+				<div class="carousel-caption hidden-phone">
+					<h4><?php the_title(); ?></h4> 
+					<p><?php the_field("slide_caption"); ?></p> 
 				</div>
-				<?php endwhile; ?>
-			</div>
+			</a>
+			<?php endwhile; ?>
+		</div>
 
 		<?php if ( have_posts() ) : ?>
 
