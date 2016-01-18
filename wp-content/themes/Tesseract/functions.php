@@ -389,3 +389,47 @@ function theme_name_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
+
+
+
+function create_content_post_type() {
+	$labels = array(
+		'name'               => _x( 'Content', 'post type general name', 'your-plugin-textdomain' ),
+		'singular_name'      => _x( 'Content', 'post type singular name', 'your-plugin-textdomain' ),
+		'menu_name'          => _x( 'Contents', 'admin menu', 'your-plugin-textdomain' ),
+		'name_admin_bar'     => _x( 'Content', 'add new on admin bar', 'your-plugin-textdomain' ),
+		'add_new'            => _x( 'Add New', 'slide', 'your-plugin-textdomain' ),
+		'add_new_item'       => __( 'Add New Content', 'your-plugin-textdomain' ),
+		'new_item'           => __( 'New Content', 'your-plugin-textdomain' ),
+		'edit_item'          => __( 'Edit Content', 'your-plugin-textdomain' ),
+		'view_item'          => __( 'View Content', 'your-plugin-textdomain' ),
+		'all_items'          => __( 'All Contents', 'your-plugin-textdomain' ),
+		'search_items'       => __( 'Search Contents', 'your-plugin-textdomain' ),
+		'parent_item_colon'  => __( 'Parent Contents:', 'your-plugin-textdomain' ),
+		'not_found'          => __( 'No contents found.', 'your-plugin-textdomain' ),
+		'not_found_in_trash' => __( 'No contents found in Trash.', 'your-plugin-textdomain' )
+	);
+
+	$args = array(
+		'labels'             => $labels,
+                'description'        => __( 'Description.', 'your-plugin-textdomain' ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'content' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => null,
+		'supports'           => array( 'title' )
+	);
+
+	register_post_type( 'content', $args );
+}
+
+add_action( 'init', 'create_content_post_type' );
+
+
+

@@ -10,12 +10,16 @@ get_header(); ?>
 	<div id="primary" class="full-width-page">
 		<main id="main" class="site-main" role="main">
 		
+		<?php
+			if ( is_page('home') ) :
+		?>
+
 		<div id="carousel" class="owl-carousel">
 			<?php $new_query = new WP_Query('post_type=slide&posts_per_page=-1');
 				while($new_query->have_posts()) : $new_query->the_post();
 			?>
 			<a class="item link">  
-				<img src="<?php the_field("slide_image"); ?>" alt="<?php the_title(); ?>"> 
+				<img style="height: 400px;" src="<?php the_field("slide_image"); ?>" alt="<?php the_title(); ?>"> 
 				<div class="carousel-caption hidden-phone">
 					<h4><?php the_title(); ?></h4> 
 					<p><?php the_field("slide_caption"); ?></p> 
@@ -23,6 +27,29 @@ get_header(); ?>
 			</a>
 			<?php endwhile; ?>
 		</div>
+
+		<?php else : ?>
+
+		<div class="sub_page_main_content">
+			<h1><?php the_field("title"); ?></h1>
+			<div class="content_text">
+				<p><?php the_field("content_text"); ?></p>
+			</div>
+			<div class="main_image">
+				<img src="<?php the_field("main_content_image"); ?>" >
+			</div>	
+			<div class="sub_image_1">
+				<img src="<?php the_field("child_image_1"); ?>" >
+			</div>
+			<div class="sub_image_2">
+				<img src="<?php the_field("child_image_2"); ?>" >
+			</div>
+			<div class="sub_image_3">
+				<img src="<?php the_field("child_image_3"); ?>" >
+			</div>
+		</div>
+
+		<?php endif; ?>
 
 		<?php if ( have_posts() ) : ?>
 
