@@ -18,7 +18,7 @@ get_header(); ?>
 			<?php $new_query = new WP_Query('post_type=slide&posts_per_page=-1');
 				while($new_query->have_posts()) : $new_query->the_post();
 			?>
-			<a class="item link">  
+			<a class="item link" href="<?php the_field("slide_url"); ?>">  
 				<img style="height: 400px;" src="<?php the_field("slide_image"); ?>" alt="<?php the_title(); ?>"> 
 				<div class="carousel-caption hidden-phone">
 					<h4><?php the_title(); ?></h4> 
@@ -38,14 +38,16 @@ get_header(); ?>
 			<div class="main_image">
 				<img src="<?php the_field("main_content_image"); ?>" >
 			</div>	
-			<div class="sub_image_1">
-				<img src="<?php the_field("child_image_1"); ?>" >
-			</div>
-			<div class="sub_image_2">
-				<img src="<?php the_field("child_image_2"); ?>" >
-			</div>
-			<div class="sub_image_3">
-				<img src="<?php the_field("child_image_3"); ?>" >
+			<div class="child_images">
+				<div class="sub_image_1">
+					<img src="<?php the_field("child_image_1"); ?>" >
+				</div>
+				<div class="sub_image_2">
+					<img src="<?php the_field("child_image_2"); ?>" >
+				</div>
+				<div class="sub_image_3">
+					<img src="<?php the_field("child_image_3"); ?>" >
+				</div>
 			</div>
 		</div>
 

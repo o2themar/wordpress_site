@@ -2387,6 +2387,47 @@ article.comment-body{
 }
 
 
+/* =27. Personal styles
+-------------------------------------------------------------- */
+.sub_page_main_content {
+	display : block;
+	margin: 0 auto;
+}
+
+.sub_page_main_content h1 {
+	text-align: left;
+}
+
+.content_text {
+
+}
+
+.main_image {
+	display: block;
+	margin: auto;
+	width: 60%;
+}
+
+.child_images {
+	display: block;
+	margin: 0px auto;
+}
 
 
+.sub_image_1 {
+	display: inline-block;
+	width: 300px;
+	height: 300px;
+}
 
+.sub_image_2 {
+	display: inline-block;
+	width: 300px;
+	height: 300px;
+}
+
+.sub_image_3 {
+	display: inline-block;
+	width: 300px;
+	height: 300px;
+}
